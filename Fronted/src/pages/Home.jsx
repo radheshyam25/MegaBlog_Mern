@@ -15,11 +15,13 @@ function Home() {
     useEffect(() => {
         const helper=async()=>{
             const session=await getcurrentuser();
+            if(session){
             const userData=session.data;
             if(userData){
                 setauth(true);
                 dispatch(login({userData}));
                 
+            }
             }
         }
         if(!auth){
