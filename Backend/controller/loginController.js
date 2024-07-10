@@ -36,7 +36,7 @@ const handleLogin=async(req,res)=>{
     });
     
     const founduser1=await User.findOne({email:email}).exec();
-    res.cookie('jwt',refreshtoken,{httpOnly:true,secure:true,sameSite:'lax',maxAge:24*60*60*1000});
+    res.cookie('jwt',refreshtoken,{httpOnly:false,secure:true,sameSite:'lax',maxAge:24*60*60*1000});
     res.send({
         
             "name":founduser.name,
