@@ -2,7 +2,7 @@ const User=require('../model/User');
 
 const handleLogout=async(req,res)=>{
     const cookies=req.cookies;
-    if(!cookies?.jwt) return res.status(401).json("no cookies found");
+    if(!cookies?.jwt) return res.status(401).json(req);
     const refreshtoken=cookies.jwt;
 
     const founduser=await User.findOne({refreshtoken:refreshtoken}).exec();
