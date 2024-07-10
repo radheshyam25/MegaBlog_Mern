@@ -7,7 +7,7 @@ const handleLogout=async(req,res)=>{
 
     const founduser=await User.findOne({refreshtoken:refreshtoken}).exec();
     if(!founduser){
-        res.clearCookie('jwt',{httpOnly:true});
+        res.clearCookie('jwt',{httpOnly:false});
         return res.sendStatus(204);
     }
     await User.updateOne({refreshtoken:refreshtoken},{
@@ -15,7 +15,7 @@ const handleLogout=async(req,res)=>{
             refreshtoken:''
         }
     });
-    res.clearCookie('jwt',{httpOnly:true})
+    res.clearCookie('jwt',{httpOnly:false})
     res.status(202).json({message:"User are logged out"});
 }
 
