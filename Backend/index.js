@@ -15,7 +15,7 @@ const app=express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors(
     {
-        origin:"http://localhost:5173",
+        origin:"https://mega-blog-mern-zicj.vercel.app",
         credentials:true,
         
     }
